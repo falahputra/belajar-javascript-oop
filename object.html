@@ -17,22 +17,22 @@
     // }
     // Not consistent
 
-    function Person(){
-        this.firstName = "";
-        this.lastName = "";
+    function Person(firstName, lastName){
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.sayHelllo = function (name){
             console.log(`Hello ${name} my name is ${this.firstName}`);
         }
     }
 
-    const eko = new Person();
-    eko.firstName = "Eko";
-    eko.lastName = "Khennedy";
+    const eko = new Person("Eko","Khennedy");
+    // eko.firstName = "Eko";
+    // eko.lastName = "Khennedy";
     eko.sayHelllo("Joko");
     
-    const budi = new Person();
-    budi.firstName = "Budi";
-    budi.lastName = "Nugraha";
+    const budi = new Person("Budi", "Nugraha");
+    // budi.firstName = "Budi";
+    // budi.lastName = "Nugraha";
     budi.sayHelllo("Widodo");
 
 
