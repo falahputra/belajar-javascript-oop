@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Method</title>
+</head>
+<body>
+<script>
+    class Person{
+        constructor(name){
+            console.log(`Membuat Person ${name}`);
+            this.name = name;
+
+            // not recomendations this will store function in instance not prototype
+            // this.sayHello = function (name){
+            //     console.log(`Hi ${name}, my name is ${this.name}`);
+            // }
+        }
+
+        sayHello(name){
+            console.log(`Hi ${name}, my name is ${this.name}`);
+        }
+    }
+
+    const eko = new Person("Eko");
+    const budi = new Person("Budi");
+    console.log(eko);
+    eko.sayHello("Joko")
+    // console.log();
+    console.log(budi);
+    budi.sayHello("Widodo")
+    // console.log();
+    
+</script>
+</body>
+</html>
