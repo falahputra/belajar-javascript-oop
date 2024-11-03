@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error Class</title>
+</head>
+<body>
+<script>
+
+    class ValidationError extends Error{
+        constructor(message, field){
+            super(message);
+            this.field = field;
+        }
+    }
+
+    class MathUtil{
+        static sum(...numbers){
+            if (numbers.length === 0){
+                // const eror = new Error("Total Pamater harus lebih dari 0")
+                throw new ValidationError("Total Pamater harus lebih dari 0","Number");
+            }
+
+            let total = 0;
+            for (const number of numbers){
+                total+=number;
+            }
+            return total;
+        }
+    }
+
+
+    try {
+        const result = MathUtil.sum();
+
+        // const result = MathUtil.sum(...[1,2,3,4,5]);
+        console.log(result);
+    } catch (error) {
+        console.log("Ekooo");
+        if (error instanceof ValidationError){
+
+            console.error(`Terjadi Eror ${error.message} di field ${error.field}`);
+        }else{
+            console.error(`Terjadi Eror ${error.message}`);
+
+        }
+    } finally{
+        console.log("Akan selalu di eksekusi terlepas dari eror");
+    }
+
+    console.info("Tetep lanjut kalo pake try catch")
+
+
+</script>
+</body>
+</html>
